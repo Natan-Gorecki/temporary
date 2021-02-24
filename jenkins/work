@@ -1,0 +1,58 @@
+pipeline {
+  agent any
+  stages {
+    stage('Clean Workspace') {
+      steps {
+        cleanWs()
+      }
+    }
+
+    stage('Checkout SCM') {
+      steps {
+        checkout scm
+      }
+    }
+
+
+    stage('Checkout External Dependencies') {
+      echo "Checkout..."
+      echo "1/3 working..."
+      echo "2/3 working..."
+      echo "3/3 working... DONE!"
+    }
+
+    stage('Checkout InvenTex modules') {
+      parallel {
+        
+        stage('INVENTEX_CORE') {
+          steps {
+            echo "Checkout INVENTEX_CORE..."
+            echo "1/3 working..."
+            echo "2/3 working..."
+            echo "3/3 working... DONE!"
+          }
+        }
+        
+        stage('COMMON') {
+          steps {
+            echo "Checkout COMMON..."
+            echo "1/3 working..."
+            echo "2/3 working..."
+            echo "3/3 working... DONE!"
+          }
+        }
+      }
+    }
+    
+    stage('Checkout External Dependencies') {
+      echo "Deploying..."
+    }
+
+    stage('Checkout External Dependencies') {
+      echo "Testing..."
+    }
+  }
+  options {
+    skipDefaultCheckout()
+  }
+}
