@@ -15,10 +15,12 @@ pipeline {
 
 
     stage('Checkout External Dependencies') {
-      echo "Checkout..."
-      echo "1/3 working..."
-      echo "2/3 working..."
-      echo "3/3 working... DONE!"
+      steps{
+        echo "Checkout..."
+        echo "1/3 working..."
+        echo "2/3 working..."
+        echo "3/3 working... DONE!"
+      }
     }
 
     stage('Checkout InvenTex modules') {
@@ -43,7 +45,7 @@ pipeline {
         }
       }
     }
-    
+
     stage('Checkout External Dependencies') {
       echo "Deploying..."
     }
