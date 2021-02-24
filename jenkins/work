@@ -46,11 +46,11 @@ pipeline {
       }
     }
 
-    stage('Checkout External Dependencies') {
+    stage('Deploying') {
       echo "Deploying..."
     }
 
-    stage('Checkout External Dependencies') {
+    stage('Testing') {
       echo "Testing..."
     }
   }
