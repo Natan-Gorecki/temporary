@@ -13,50 +13,50 @@ pipeline {
       }
     }
 
-
     stage('Checkout External Dependencies') {
-      steps{
-        echo "Checkout..."
-        echo "1/3 working..."
-        echo "2/3 working..."
-        echo "3/3 working... DONE!"
+      steps {
+        echo 'Checkout...'
+        echo '1/3 working...'
+        echo '2/3 working...'
+        echo '3/3 working... DONE!'
       }
     }
 
     stage('Checkout InvenTex modules') {
       parallel {
-        
         stage('INVENTEX_CORE') {
           steps {
-            echo "Checkout INVENTEX_CORE..."
-            echo "1/3 working..."
-            echo "2/3 working..."
-            echo "3/3 working... DONE!"
+            echo 'Checkout INVENTEX_CORE...'
+            echo '1/3 working...'
+            echo '2/3 working...'
+            echo '3/3 working... DONE!'
           }
         }
-        
+
         stage('COMMON') {
           steps {
-            echo "Checkout COMMON..."
-            echo "1/3 working..."
-            echo "2/3 working..."
-            echo "3/3 working... DONE!"
+            echo 'Checkout COMMON...'
+            echo '1/3 working...'
+            echo '2/3 working...'
+            echo '3/3 working... DONE!'
           }
         }
+
       }
     }
 
     stage('Deploying') {
       steps {
-        error("Build failed because of this and that..")
+        echo 'Success'
       }
     }
 
     stage('Testing') {
       steps {
-        echo "Testing..."
+        echo 'Testing...'
       }
     }
+
   }
   options {
     skipDefaultCheckout()
