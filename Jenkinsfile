@@ -16,7 +16,8 @@ pipeline {
 
     stage('WORK') {
       steps {
-        build 'work'
+        def pipelineWORK = load "jenkins/work"
+        pipelineWORK.pipeline()
       }
     }
 
