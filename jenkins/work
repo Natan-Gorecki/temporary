@@ -48,7 +48,7 @@ pipeline {
 
     stage('Deploying') {
       steps {
-        echo "Deploying..."
+        error("Build failed because of this and that..")
       }
     }
 
