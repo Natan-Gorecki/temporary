@@ -47,11 +47,15 @@ pipeline {
     }
 
     stage('Deploying') {
-      echo "Deploying..."
+      steps {
+        echo "Deploying..."
+      }
     }
 
     stage('Testing') {
-      echo "Testing..."
+      steps {
+        echo "Testing..."
+      }
     }
   }
   options {
